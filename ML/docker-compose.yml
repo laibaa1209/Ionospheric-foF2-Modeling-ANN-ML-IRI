@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  tf-gpu:
+    build: .
+    container_name: tf-gpu
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    volumes:
+      - ./:/workspace
+      - ../Fof2 Data:/Fof2 Data
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
